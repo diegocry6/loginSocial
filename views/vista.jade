@@ -1,0 +1,29 @@
+html
+    link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='stylesheets/viewcss.css')
+block content
+  h1 Lista de Usuarios de SQLITE
+   table.table.table-hover
+    thead
+      tr
+        th Usuario
+        th Contraseña
+        th ID Perfil
+        th Token
+        th Nombre en Perfil
+        th Modificar Usuario
+        th Eliminar Usuario
+    tbody
+          if(usuarios)
+            each usuario in usuarios
+              tr
+                td=usuario.username
+                td=usuario.password
+                td=usuario.idperfil
+                td=usuario.token
+                td=usuario.nombreperfil
+                td
+                  a.button(href='/sqlite/modificar?id='+usuario.id) Modificar Usuario
+                td
+                  a.button(href='/sqlite/eliminar?id='+usuario.id) Eliminar Usuario
+a.button(href='/sqlite/add') Añadir Usuario

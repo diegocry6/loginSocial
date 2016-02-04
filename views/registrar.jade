@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='../stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='../stylesheets/viewcss.css')
+    body
+        .container
+            h2 Registrar Usuario
+            form.form-horizontal(role='form')
+                .form-group
+                    label.control-label.col-sm-2(for='email') Username:
+                    .col-sm-10
+                        input#username.form-control(type='text', placeholder='Introduzca Nombre de Usuario')
+                .form-group
+                    label.control-label.col-sm-2(for='pwd') Password:
+                    .col-sm-10
+                        input#pwd.form-control(type='password', placeholder='Enter password')
+                .form-group
+                    .col-sm-offset-2.col-sm-10
+                        button.btn.btn-default(type='submit') Registrar

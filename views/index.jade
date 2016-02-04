@@ -1,0 +1,23 @@
+html
+  link(href='http://fonts.googleapis.com/css?family=Raleway:500', rel='stylesheet', type='text/css')
+  link(href='stylesheets/logincss.css', rel='stylesheet', type='text/css')
+  link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+  body
+    .middlePage
+      .panel.panel-info
+        .panel-heading
+          h1.panel-title Login Social
+        .panel-body
+          .row
+            .col-md-7
+              form.form-horizontal
+                fieldset
+                  input#textinput.form-control.input-md(name='textinput', type='text', placeholder='Nombre de Usuario')
+                  input#textinput.form-control.input-md(name='textinput', type='text', placeholder='Password')
+                  .spacing
+                  a.btn.btn-info.btn-sm.pull-right(href='/loged')  Login
+              br
+              .col-md-5
+                a(href='/loged')
+                  img(src='http://techulus.com/buttons/tw.png')
+              br

@@ -1,22 +1,20 @@
-doctype html
-html(lang='en')
+html
     head
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='../stylesheets/bootstrap.min.css')
         link(rel='stylesheet', href='../stylesheets/viewcss.css')
     body
-        .container
-            h2 Registrar Usuario
-            form.form-horizontal(role='form')
-                .form-group
-                    label.control-label.col-sm-2(for='email') Username:
-                    .col-sm-10
-                        input#username.form-control(type='text', placeholder='Introduzca Nombre de Usuario')
-                .form-group
-                    label.control-label.col-sm-2(for='pwd') Password:
-                    .col-sm-10
-                        input#pwd.form-control(type='password', placeholder='Enter password')
-                .form-group
-                    .col-sm-offset-2.col-sm-10
-                        button.btn.btn-default(type='submit') Registrar
+        div
+            h1 Registrar Usuario
+            form(action='/sqlite/registrar', method='post')
+                div(data-role='fieldcontain')
+                    fieldset(data-role='controlgroup')
+                        label(for='username')
+                            | username
+                            input#username(type='text', value='', placeholder='Nombre de Usuario', name='username')
+                #passworddiv(data-role='fieldcontain')
+                    fieldset(data-role='controlgroup')
+                        label(for='password')
+                            | password
+                            input#password(type='password', value='', placeholder='', name='password')
+                div(data-role='fieldcontain')
+                    input(type='submit', value='Registrar', data-transition='fade', data-theme='c')

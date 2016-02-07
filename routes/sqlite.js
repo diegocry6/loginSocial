@@ -43,6 +43,16 @@ router.get('/add', function(req, res, next) {
 
 });
 
+router.post('/registrar', function(req, res) {
+
+    db = new sqlite3.Database('loginsocial.db');
+    db.run('INSERT INTO USUARIOS (ID,USERNAME,PASSWORD,IDPERFIL,TOKEN,NOMBREPERFIL) VALUES ('+null+',"'+req.body.username+'","'+req.body.password+'","ninguno","ninguno","ninguno");');
+    console.log(req.body);
+    res.redirect('/sqlite');
+
+
+});
+
 
 
 

@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
+var cors = require('cors');
 db = new sqlite3.Database('loginsocial.db');
+session = require('express-session');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+router.use(cors());
+
+function getDatos(req, res, next) {
 
     db.serialize(function() {
         db.run("CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
@@ -15,23 +18,38 @@ router.get('/', function(req, res, next) {
             }
             else
             {
-                var usuarios = [];
+                usuarios = [];
 
                 rows.forEach(function(fila) {
                     usuarios.push(fila);
                 });
-                    res.render('vista', { usuarios: usuarios });
+                res.render('vista', { usuarios: usuarios });
 
             }
         });
     });
+}
+
+router.get('/', function(req, res, next) {
+
+    if ( req.session.username ) {
+
+        console.log(req.session);
+        getDatos(req, res, next);
+
+    } else {
+
+        res.redirect('http://127.0.0.1:3000/');
+
+    }
+
+
 });
 
 router.get('/eliminar', function(req, res, next) {
 
 ideliminar = req.query.id;
 
-    db = new sqlite3.Database('loginsocial.db');
     db.run("DELETE FROM USUARIOS WHERE ID = "+ideliminar);
     res.redirect('/sqlite');
 
@@ -45,14 +63,29 @@ router.get('/add', function(req, res, next) {
 
 router.post('/registrar', function(req, res) {
 
-    db = new sqlite3.Database('loginsocial.db');
     db.run('INSERT INTO USUARIOS (ID,USERNAME,PASSWORD,IDPERFIL,TOKEN,NOMBREPERFIL) VALUES ('+null+',"'+req.body.username+'","'+req.body.password+'","ninguno","ninguno","ninguno");');
     console.log(req.body);
     res.redirect('/sqlite');
 
+});
+
+router.put('/', function(req, res, next) {
+
+    campo = req.body.campo;
+    valor = req.body.valor;
+    id = req.body.id;
+
+    db.run("UPDATE usuarios SET "+campo+" = '"+valor+"' WHERE id = " +id+";");
+    getDatos(req, res, next);
 
 });
 
+router.get('/cerrarsesion', function(req, res, next) {
+
+    req.session.destroy();
+    res.redirect('http://127.0.0.1:3000/');
+
+});
 
 
 

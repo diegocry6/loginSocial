@@ -1,6 +1,9 @@
 html
     link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='stylesheets/viewcss.css')
+    script(type='text/javascript', src='javascripts/jquery.js')
+    script(type='text/javascript', src='javascripts/viewjs.js')
+
 block content
   h1 Lista de Usuarios de SQLITE
    table.table.table-hover
@@ -23,8 +26,16 @@ block content
                 td=usuario.token
                 td=usuario.nombreperfil
                 td
-                  a.button(href='/sqlite/modificar?id='+usuario.id) Modificar Usuario
+                    .dropdown
+                        button.dropbtn(onclick='myFunction()') Modificar Datos
+                        #myDropdown.dropdown-content
+                            button(onclick='valueSwap('+usuario.id+',"username");') Nombre de Usuario
+                            button(onclick='valueSwap('+usuario.id+',"password");') Contraseña
+                            button(onclick='valueSwap('+usuario.id+',"idperfil");') ID Perfil
+                            button(onclick='valueSwap('+usuario.id+',"token");') Token
+                            button(onclick='valueSwap('+usuario.id+',"nombreperfil");') Nombre en Perfil
                 td
-                  a.button(href='/sqlite/eliminar?id='+usuario.id) Eliminar Usuario
+                    a.btn.btn-primary(href='/sqlite/eliminar?id='+usuario.id) Eliminar Usuario
 a.btn.btn-primary(href='/sqlite/add') Añadir Usuario
-a.btn.btn-primary(href='/') Volver Atras
+a.btn.btn-primary(href='/loged') Volver Atras
+a.btn.btn-primary(href='/sqlite/cerrarsesion') Cerrar Sesion

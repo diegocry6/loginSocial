@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
 db = new sqlite3.Database('loginsocial.db');
+session = require('express-session');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,11 +10,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/loged', function(req, res, next) {
-  res.render('loged', { title: 'LoginSocial' });
+
+    if ( req.session.username ) {
+
+        res.render('loged', { title: 'LoginSocial' });
+
+    } else {
+
+        res.redirect('http://127.0.0.1:3000/');
+
+    }
+
+
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body);
 
       stmt = db.prepare("SELECT * FROM usuarios WHERE username = ? AND password = ?");
           stmt.bind(req.body.username, req.body.password);
@@ -21,7 +32,8 @@ router.post('/', function(req, res, next) {
           {
             if ((req.body.username) || (req.body.password)) {
               if (row) {
-                res.redirect('/loged');
+                  req.session.username = req.body.username;
+                  res.redirect('/loged');
               } else {
                 res.send("Error en las credenciales <a href='/'>Volver</a>", 200);
               }

@@ -34,7 +34,6 @@ router.get('/', function(req, res, next) {
 
     if ( req.session.username ) {
 
-        console.log(req.session);
         getDatos(req, res, next);
 
     } else {
@@ -64,7 +63,6 @@ router.get('/add', function(req, res, next) {
 router.post('/registrar', function(req, res) {
 
     db.run('INSERT INTO USUARIOS (ID,USERNAME,PASSWORD,IDPERFIL,TOKEN,NOMBREPERFIL) VALUES ('+null+',"'+req.body.username+'","'+req.body.password+'","ninguno","ninguno","ninguno");');
-    console.log(req.body);
     res.redirect('/sqlite');
 
 });

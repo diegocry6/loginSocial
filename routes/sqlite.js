@@ -38,7 +38,7 @@ router.get('/', function(req, res, next) {
 
     } else {
 
-        res.redirect('http://127.0.0.1:3000/');
+        res.redirect('/');
 
     }
 
@@ -77,14 +77,5 @@ router.put('/', function(req, res, next) {
     getDatos(req, res, next);
 
 });
-
-router.get('/cerrarsesion', function(req, res, next) {
-
-    req.session.destroy();
-    res.redirect('http://127.0.0.1:3000/');
-
-});
-
-
 
 module.exports = router;

@@ -15,8 +15,8 @@ var usuarioSchema = new Schema({
     providerData: {},
 });
 
-var usuario = mongoose.model('usuario', usuarioSchema);
+var usuario = mongoose.model('Usuario', usuarioSchema);
 
 module.exports = {
-    Usuario: usuario
+    Usuario: Usuario
 };

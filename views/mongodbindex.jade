@@ -5,7 +5,7 @@ html
   script(type='text/javascript', src='javascripts/viewjs.js')
 
 block content
-  h1 Lista de Usuarios de SQLITE
+  h1 Lista de Usuarios de MongoDB
     table.table.table-hover
       thead
         tr
@@ -19,11 +19,11 @@ block content
       tbody
           each usuario in usuarios
             tr
-              td=usuario
-              td=usuario
-              td=usuario.idperfil
-              td=usuario.token
-              td=usuario.nombreperfil
+              td=usuario.name
+              td=usuario.password
+              td=usuario.email
+              td=usuario.providerData
+              td=usuario.providerId
               td
                 .dropdown
                   button.dropbtn(onclick='myFunction()') Modificar Datos

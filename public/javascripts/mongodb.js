@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
     autoRefresco();
 });
@@ -11,15 +10,17 @@ function myFunction() {
 function autoRefresco() {
     setTimeout(function () {
         window.location.reload(1);
-    }, 8000);
+    }, 88000);
 }
 
 function valueSwap(id,campo) {
+
     var newValue = prompt("Por favor introduzca el nuevo Valor");
     if (newValue != null) {
 
+
         jQuery.ajax({
-            url: "/sqlite",
+            url: "/mongodb",
             type: "PUT",
             dataType:'json',
             data: {

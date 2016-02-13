@@ -4,6 +4,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 var dbHost = 'mongodb://localhost:27017/local';
 session = require('express-session');
+var cors = require('cors');
+router.use(cors());
 
     usuarioSchema = new Schema({
         name: String,
@@ -25,25 +27,25 @@ var db = mongoose.connection;
 
 mongoose.connect(dbHost);
 
-router.get('/', function(req, res, next) {
+function getView(req, res, next) {
 
-    if ( req.session.username ) {
+    if (req.session.username) {
 
         db.on('error', console.error.bind(console, 'connection error:'));
-        db.once('open', function(){
+        db.once('open', function () {
             console.log("Connected to DB");
 
         });
         usuarios = [];
-        Usuario.find({},function(err, result){
-            if ( err ) throw err;
-            result.forEach(function(fila) {
+        Usuario.find({}, function (err, result) {
+            if (err) throw err;
+            result.forEach(function (fila) {
                 {
                     usuarios.push(fila);
                 }
             });
 
-            res.render('mongodbindex', { usuarios: usuarios });
+            res.render('mongodbindex', {usuarios: usuarios});
         });
 
     } else {
@@ -51,7 +53,11 @@ router.get('/', function(req, res, next) {
         res.redirect('/');
 
     }
+}
 
+router.get('/', function(req, res, next) {
+
+    getView(req, res, next);
 
 });
 
@@ -94,7 +100,12 @@ router.put('/', function(req, res, next) {
     valor = req.body.valor;
     id = req.body.id;
 
-    db.run("UPDATE usuarios SET "+campo+" = '"+valor+"' WHERE id = " +id+";");
+    User.findByIdAndUpdate(id, { campo: valor }, function(err, user) {
+
+        if (err) throw err;
+
+    });
+
     getDatos(req, res, next);
 
 });

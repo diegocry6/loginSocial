@@ -50,5 +50,4 @@ router.get('/cerrarsesion', function(req, res, next) {
 
 });
 
-
 module.exports = router;

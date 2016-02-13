@@ -2,7 +2,7 @@ html
   link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
   link(rel='stylesheet', href='stylesheets/viewcss.css')
   script(type='text/javascript', src='javascripts/jquery.js')
-  script(type='text/javascript', src='javascripts/viewjs.js')
+  script(type='text/javascript', src='javascripts/mongodb.js')
 
 block content
   h1 Lista de Usuarios de MongoDB
@@ -28,11 +28,11 @@ block content
                 .dropdown
                   button.dropbtn(onclick='myFunction()') Modificar Datos
                   #myDropdown.dropdown-content
-                    button(onclick='valueSwap('+usuario._id+',"username");') Nombre de Usuario
-                    button(onclick='valueSwap('+usuario._id+',"password");') Contraseña
-                    button(onclick='valueSwap('+usuario._id+',"idperfil");') Email
-                    button(onclick='valueSwap('+usuario._id+',"token");') Token
-                    button(onclick='valueSwap('+usuario._id+',"nombreperfil");') Nombre en Perfil
+                    button(onclick='valueSwap("'+usuario._id+'","name");') Nombre de Usuario
+                    button(onclick='valueSwap("'+usuario._id+'","password");') Contraseña
+                    button(onclick='valueSwap("'+usuario._id+'","email");') Email
+                    button(onclick='valueSwap("'+usuario._id+'","providerData");') Token
+                    button(onclick='valueSwap("'+usuario._id+'","providerId");') Nombre en Perfil
               td
                 a.btn.btn-primary(href='/mongodb/eliminar?id='+usuario._id) Eliminar Usuario
 a.btn.btn-primary(href='/mongodb/add') Añadir Usuario

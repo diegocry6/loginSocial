@@ -10,7 +10,7 @@ function myFunction() {
 function autoRefresco() {
     setTimeout(function () {
         window.location.reload(1);
-    }, 88000);
+    }, 8000);
 }
 
 function valueSwap(id,campo) {

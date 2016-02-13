@@ -3,6 +3,7 @@ var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
 db = new sqlite3.Database('loginsocial.db');
 session = require('express-session');
+var logout = require('express-passport-logout');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -45,9 +46,11 @@ router.post('/', function(req, res, next) {
 
 router.get('/cerrarsesion', function(req, res, next) {
 
-    req.session.destroy();
-    req.logout();
-    res.redirect('/');
+
+    req.session.destroy()
+    req.session = null
+    req.logout()
+    res.redirect('/')
 
 });
 

@@ -28,6 +28,7 @@ module.exports = function(passport) {
             });
             user.save(function (err) {
                 if (err) throw err;
+                req.session.username = profile.displayName;
                 done(null, user);
             });
         });

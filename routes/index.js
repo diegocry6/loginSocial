@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/loged', function(req, res, next) {
 
-    if ( req.session.username ) {
+    if ( req.session.username || req.user ) {
 
         res.render('loged', { title: 'LoginSocial' });
 
@@ -46,6 +46,7 @@ router.post('/', function(req, res, next) {
 router.get('/cerrarsesion', function(req, res, next) {
 
     req.session.destroy();
+    req.logout();
     res.redirect('/');
 
 });

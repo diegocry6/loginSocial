@@ -29,7 +29,7 @@ mongoose.connect(dbHost);
 
 function getView(req, res, next) {
 
-    if (req.session.username) {
+    if ( req.session.username || req.user ) {
 
         db.on('error', console.error.bind(console, 'connection error:'));
         db.once('open', function () {

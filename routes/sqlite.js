@@ -32,7 +32,7 @@ function getDatos(req, res, next) {
 
 router.get('/', function(req, res, next) {
 
-    if ( req.session.username ) {
+    if ( req.session.username || req.user ) {
 
         getDatos(req, res, next);
 

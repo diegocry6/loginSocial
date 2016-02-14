@@ -2,35 +2,42 @@ html
     head
         link(rel='stylesheet', href='../stylesheets/bootstrap.min.css')
         link(rel='stylesheet', href='../stylesheets/viewcss.css')
+        link(rel='stylesheet', href='../stylesheets/validetta.min.css')
+        script(type='text/javascript', src='/javascripts/jquery.js')
+        script(type='text/javascript', src='/javascripts/validetta.min.js')
+        script.
+            $(document).ready(function() {
+                $("#registro").validetta();
+            });
     body
         div
             h1 Registrar Usuario
-            form(action='/sqlite/registrar', method='post')
+            form#registro(action='/sqlite/registrar', method='post')
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='username')
                             | Username
-                            input#username(type='text', value='', placeholder='Nombre de Usuario', name='username')
+                            input#username(type='text', value='', placeholder='Nombre de Usuario', name='username', data-validetta='required')
                 #passworddiv(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='password')
                             | Password
-                            input#password(type='password', value='', placeholder='', name='password')
+                            input#password(type='password', value='', placeholder='', name='password', data-validetta='required')
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='tipousuario')
                             | Tipo de usuario
-                            input#tipousuario(type='text', value='', placeholder='Tipo de Usuario', name='tipousuario')
+                            input#tipousuario(type='text', value='', placeholder='Tipo de Usuario', name='tipousuario', data-validetta='required')
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='email')
                             | Email
-                            input#email(type='text', value='', placeholder='Email', name='email')
+                            input#email(type='text', value='', placeholder='Email', name='email', data-validetta='email,required')
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='telefono')
                             | Telefono
-                            input#telefono(type='text', value='', placeholder='Telefono', name='telefono')
+                            input#telefono(type='text', value='', placeholder='Telefono', name='telefono', data-validetta='required')
                 div(data-role='fieldcontain')
                     input.btn.btn-default(type='submit', value='Registrar', data-transition='fade', data-theme='c')
 

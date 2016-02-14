@@ -98,15 +98,15 @@ router.put('/', function(req, res, next) {
 
     campo = req.body.campo;
     valor = req.body.valor;
-    id = req.body.id;
+    iddoc = req.body.id;
 
-    User.findByIdAndUpdate(id, { campo: valor }, function(err, user) {
+    console.log(req.body);
 
-        if (err) throw err;
-
+    Usuario.update({id : {$eq: iddoc}}, {$set: {campo: valor}}, function(err, result){
+        console.log(err);
     });
 
-    getDatos(req, res, next);
+    getView(req,res,next);
 
 });
 

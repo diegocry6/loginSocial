@@ -26,8 +26,8 @@ block content
               td=usuario.providerId
               td
                 .dropdown
-                  button.dropbtn(onclick='myFunction()') Modificar Datos
-                  #myDropdown.dropdown-content
+                  button.dropbtn(onclick='myFunction("'+usuario.id+'")') Modificar Datos
+                  div(id=usuario.id, class="dropdown-content")
                     button(onclick='valueSwap("'+usuario._id+'","name");') Nombre de Usuario
                     button(onclick='valueSwap("'+usuario._id+'","password");') Contraseña
                     button(onclick='valueSwap("'+usuario._id+'","email");') Email

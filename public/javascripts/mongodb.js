@@ -3,8 +3,8 @@ $( document ).ready(function() {
 });
 
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function myFunction(divid) {
+    document.getElementById(divid).classList.toggle("show");
 }
 
 function autoRefresco() {

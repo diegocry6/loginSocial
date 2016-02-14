@@ -9,12 +9,28 @@ html
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='username')
-                            | username
+                            | Username
                             input#username(type='text', value='', placeholder='Nombre de Usuario', name='username')
                 #passworddiv(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='password')
-                            | password
+                            | Password
                             input#password(type='password', value='', placeholder='', name='password')
                 div(data-role='fieldcontain')
-                    input(type='submit', value='Registrar', data-transition='fade', data-theme='c')
+                    fieldset(data-role='controlgroup')
+                        label(for='tipousuario')
+                            | Tipo de usuario
+                            input#tipousuario(type='text', value='', placeholder='Tipo de Usuario', name='tipousuario')
+                div(data-role='fieldcontain')
+                    fieldset(data-role='controlgroup')
+                        label(for='email')
+                            | Email
+                            input#email(type='text', value='', placeholder='Email', name='email')
+                div(data-role='fieldcontain')
+                    fieldset(data-role='controlgroup')
+                        label(for='telefono')
+                            | Telefono
+                            input#telefono(type='text', value='', placeholder='Telefono', name='telefono')
+                div(data-role='fieldcontain')
+                    input.btn.btn-default(type='submit', value='Registrar', data-transition='fade', data-theme='c')
+

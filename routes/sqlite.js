@@ -56,13 +56,22 @@ ideliminar = req.query.id;
 
 router.get('/add', function(req, res, next) {
 
-    res.render('registrar', { title: 'LoginSocial' });
+    if ( req.session.username || req.user ) {
+
+        res.render('registrar', { title: 'LoginSocial' });
+
+    } else {
+
+        res.redirect('/');
+
+    }
+    
 
 });
 
 router.post('/registrar', function(req, res) {
 
-    db.run('INSERT INTO USUARIOS (ID,USERNAME,PASSWORD,IDPERFIL,TOKEN,NOMBREPERFIL) VALUES ('+null+',"'+req.body.username+'","'+req.body.password+'","ninguno","ninguno","ninguno");');
+    db.run('INSERT INTO USUARIOS (ID,USERNAME,PASSWORD,TIPOUSUARIO,EMAIL,TELEFONO) VALUES ('+null+',"'+req.body.username+'","'+req.body.password+'","'+req.body.tipousuario+'","'+req.body.email+'","'+req.body.telefono+'");');
     res.redirect('/sqlite');
 
 });

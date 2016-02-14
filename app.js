@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-    app.use(session({resave: true, saveUninitialized: true, secret: 'secreta', cookie: { maxAge: 60000 }}));
+    app.use(session({resave: true, saveUninitialized: true, secret: 'secreta', cookie: { maxAge: 600000 }}));
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

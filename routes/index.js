@@ -36,10 +36,22 @@ router.post('/', function(req, res, next) {
                   req.session.username = req.body.username;
                   res.redirect('/loged');
               } else {
-                res.send("Error en las credenciales <a href='/'>Volver</a>", 200);
-              }
+                        res.send(
+                        "<div class='alert alert-danger'>"+
+                        "<link rel='stylesheet' type='text/css' href='stylesheets/bootstrap.min.css' />" +
+                        "<link rel='stylesheet' type='text/css' href='stylesheets/errores.css' />" +
+                        "<h1>Error en las credenciales</h1><a class='btn btn-primary' href='/'>Volver</a>" +
+                        "</div>"
+                            , 200);
+                    }
             } else {
-                res.send("Los campos no pueden estar vacios <a href='/'>Volver</a>", 200);
+                res.send(
+                    "<div class='alert alert-danger'>"+
+                    "<link rel='stylesheet' type='text/css' href='stylesheets/bootstrap.min.css' />" +
+                    "<link rel='stylesheet' type='text/css' href='stylesheets/errores.css' />" +
+                    "<h1>Los campos no pueden estar vacios</h1><a class='btn btn-primary' href='/'>Volver</a>" +
+                    "</div>"
+                    , 200);
             }
           });
 });

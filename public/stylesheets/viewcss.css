@@ -2,6 +2,12 @@ body {
     color: black;
 }
 
+h1{
+    text-shadow: 0px 1px 1px black;
+    color: white;
+    font: 80px 'LeagueGothicRegular';
+}
+
 table {
   margin: 25px;
 }

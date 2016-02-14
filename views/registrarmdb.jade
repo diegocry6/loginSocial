@@ -2,19 +2,26 @@ html
     head
         link(rel='stylesheet', href='../stylesheets/bootstrap.min.css')
         link(rel='stylesheet', href='../stylesheets/viewcss.css')
+        link(rel='stylesheet', href='../stylesheets/validetta.min.css')
+        script(type='text/javascript', src='/javascripts/jquery.js')
+        script(type='text/javascript', src='/javascripts/validetta.min.js')
+        script.
+            $(document).ready(function () {
+                $("#registro").validetta();
+            });
     body
         div
             h1 Registrar Usuario
-            form(action='/mongodb/registrar', method='post')
+            form#registro(action='/mongodb/registrar', method='post')
                 div(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='username')
                             | username
-                            input#username(type='text', value='', placeholder='Nombre de Usuario', name='username')
+                            input#username(type='text', value='', placeholder='Nombre de Usuario', name='username', data-validetta='required')
                 #passworddiv(data-role='fieldcontain')
                     fieldset(data-role='controlgroup')
                         label(for='password')
                             | password
-                            input#password(type='password', value='', placeholder='', name='password')
+                            input#password(type='password', value='', placeholder='', name='password', data-validetta='required')
                 div(data-role='fieldcontain')
-                    input(type='submit', value='Registrar', data-transition='fade', data-theme='c')
+                    input.btn.btn-default(type='submit', value='Registrar', data-transition='fade', data-theme='c')

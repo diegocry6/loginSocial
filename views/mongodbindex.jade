@@ -28,11 +28,11 @@ block content
                 .dropdown
                   button.dropbtn(onclick='myFunction("'+usuario.id+'")') Modificar Datos
                   div(id=usuario.id, class="dropdown-content")
-                    button(onclick='valueSwap("'+usuario._id+'","name");') Nombre de Usuario
-                    button(onclick='valueSwap("'+usuario._id+'","password");') Contraseña
-                    button(onclick='valueSwap("'+usuario._id+'","email");') Email
-                    button(onclick='valueSwap("'+usuario._id+'","providerData");') Token
-                    button(onclick='valueSwap("'+usuario._id+'","providerId");') Nombre en Perfil
+                    button.dropbtn(onclick='valueSwap("'+usuario._id+'","name");') Nombre de Usuario
+                    button.dropbtn(onclick='valueSwap("'+usuario._id+'","password");') Contraseña
+                    button.dropbtn(onclick='valueSwap("'+usuario._id+'","email");') Email
+                    button.dropbtn(onclick='valueSwap("'+usuario._id+'","providerData");') Token
+                    button.dropbtn(onclick='valueSwap("'+usuario._id+'","providerId");') Nombre en Perfil
               td
                 a.btn.btn-primary(href='/mongodb/eliminar?id='+usuario._id) Eliminar Usuario
 a.btn.btn-primary(href='/mongodb/add') Añadir Usuario

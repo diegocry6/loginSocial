@@ -29,11 +29,11 @@ block content
                     .dropdown
                         button.dropbtn(onclick='myFunction('+usuario.id+')') Modificar Datos
                         div(id=usuario.id, class="dropdown-content")
-                            button(onclick='valueSwap('+usuario.id+',"username");') Nombre de Usuario
-                            button(onclick='valueSwap('+usuario.id+',"password");') Contraseña
-                            button(onclick='valueSwap('+usuario.id+',"tipousuario");') Tipo de Usuario
-                            button(onclick='valueSwap('+usuario.id+',"email");') Email
-                            button(onclick='valueSwap('+usuario.id+',"telefono");') Telefono
+                            button.dropbtn(onclick='valueSwap('+usuario.id+',"username");') Nombre de Usuario
+                            button.dropbtn(onclick='valueSwap('+usuario.id+',"password");') Contraseña
+                            button.dropbtn(onclick='valueSwap('+usuario.id+',"tipousuario");') Tipo de Usuario
+                            button.dropbtn(onclick='valueSwap('+usuario.id+',"email");') Email
+                            button.dropbtn(onclick='valueSwap('+usuario.id+',"telefono");') Telefono
                 td
                     a.btn.btn-primary(href='/sqlite/eliminar?id='+usuario.id) Eliminar Usuario
 a.btn.btn-primary(href='/sqlite/add') Añadir Usuario

@@ -43,30 +43,25 @@ input {
 }
 
 .dropdown {
-    display: inline-block;
+    width: 120px;
 }
 
 .dropdown-content {
     display: none;
-    position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     position: absolute;
     z-index: 10;
 }
 
 .dropdown-content button {
     color: black;
-    padding: 12px 16px;
+    padding: 10px 14px;
     text-decoration: blink;
-    display: block;
+    border: 2px solid yellow;
 }
 
-.dropdown a:hover {background-color: yellow}
+.dropdown button:hover {background-color: yellow}
 
-.show {display:block;}
 
 body {
     background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */

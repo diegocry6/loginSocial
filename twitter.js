@@ -1,6 +1,6 @@
 // twitter app settings
 module.exports = {
-    'apikey' : 'HUIEgxXucwZWH0GSxkovZ4LfG',
-    'apisecret' : 'Wojw7H5PuCZLlb1JjvOaYNgf02pmUxuNBC6BGqXZ1gMMC9ina7',
+    'apikey' : 'pon el tuyo',
+    'apisecret' : 'pon el tuyo',
     'callbackUrl' : 'http://127.0.0.1:3000/login/twitter/callback'
 }
